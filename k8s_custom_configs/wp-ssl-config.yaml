@@ -1,0 +1,35 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-production
+spec:
+  acme:
+    server: https://acme-v02.api.letsencrypt.org/directory
+    email: piotr@devopswiards.com
+    privateKeySecretRef:
+      name: letsencrypt-production
+    solvers:
+      - http01:
+          ingress:
+            class: nginx
+
+---
+
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: tls-secret-prd
+  namespace: default
+spec:
+  secretName: tls-secret-prd
+  dnsNames:
+    - demo.devopswizards.com
+  acme:
+    config:
+      - http01:
+          ingressClass: nginx
+        domains:
+          - demo.devopswizards.com
+  issuerRef:
+    name: letsencrypt-production
+    kind: ClusterIssuer

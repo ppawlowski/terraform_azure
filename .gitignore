@@ -1,0 +1,6 @@
+/.terraform/
+secrets.auto.tfvars
+/images/set_build_vars.sh
+/k8s_cluster_config
+/azurek8s
+/yamls/

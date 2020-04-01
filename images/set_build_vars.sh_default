@@ -1,0 +1,11 @@
+# Fill variables with proper values and rename file to set_build_vars.sh
+export WP_VERSION="5.3.2"
+export WP_DB_HOST=""
+export WP_DB_USER=""
+export WP_DB_PASS=""
+export WP_DB_NAME=""
+export WP_URL=""
+export WP_TITLE=""
+export WP_ADMIN_USER=""
+export WP_ADMIN_PASS=""
+export WP_ADMIN_EMAIL=""
